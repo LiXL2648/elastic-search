@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
 
 @Data
-@Configuration
+// @Configuration
 @ConfigurationProperties(prefix = "elasticsearch")
 public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
 

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Document(indexName = "product")
+@Document(indexName = "product", shards = 3, replicas = 2)
 public class Product {
 
     @Id
@@ -27,7 +27,7 @@ public class Product {
     @Field(type = FieldType.Keyword)
     private String category;
 
-    @Field(type = FieldType.Double)
+    @Field(type = FieldType.Keyword)
     private String images;
 
     @Field(type = FieldType.Keyword, index = false)

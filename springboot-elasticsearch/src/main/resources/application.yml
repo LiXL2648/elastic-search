@@ -1,3 +1,12 @@
-elasticsearch:
-  host: 10.10.0.26
-  port: 9200
+#elasticsearch:
+#  host: 192.168.230.29
+#  port: 9200
+
+spring:
+  elasticsearch:
+    rest:
+      uris:
+        - http://192.168.230.48:9200
+        - http://192.168.230.24:9200
+        - http://192.168.230.29:9200
+
