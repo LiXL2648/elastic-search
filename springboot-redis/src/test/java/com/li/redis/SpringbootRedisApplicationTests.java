@@ -1,7 +1,9 @@
 package com.li.redis;
 
+import com.li.redis.util.RsaEncryptDecryptUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.redisson.api.RedissonClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -18,6 +20,22 @@ public class SpringbootRedisApplicationTests {
 
     @Resource
     private RedisTemplate<Object, Object> redisTemplate;
+
+    @Resource
+    private RedissonClient redisson;
+
+    @Test
+    public void testRedissonClient() {
+        System.out.println(redisson);
+    }
+
+    @Test
+    public void testRsaEncryptDecryptUtil() throws Exception {
+        String text = "李丽璇";
+        String encrypt = RsaEncryptDecryptUtil.publicKeyEncrypt(text.getBytes());
+        String decrypt = RsaEncryptDecryptUtil.privateKeyDecrypt(encrypt.getBytes());
+        System.out.println(decrypt);
+    }
 
     @Test
     public void testJedisCluster() {
